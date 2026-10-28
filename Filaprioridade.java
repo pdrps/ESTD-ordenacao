@@ -9,7 +9,7 @@ public class FilaPrioridade {
  
     // Item 1.1
     // true se a tem prioridade maior que b; em empate, quem chegou antes (menor id)
-    private boolean temPrioridadeSobre(Chamado a, Chamado b) {
+    private boolean temPrioridade(Chamado a, Chamado b) {
         if (a.prioridade != b.prioridade) {
             return a.prioridade > b.prioridade;
         }
@@ -31,7 +31,7 @@ public class FilaPrioridade {
     private void subir(int i) {
         while (i > 0) {
             int pai = (i - 1) / 2;
-            if (temPrioridadeSobre(heap[i], heap[pai])) {
+            if (temPrioridade(heap[i], heap[pai])) {
                 trocar(i, pai);
                 i = pai;
             } else {
@@ -62,10 +62,10 @@ public class FilaPrioridade {
             int dir = 2 * i + 2;
             int maior = i;
  
-            if (esq < tamanho && temPrioridadeSobre(heap[esq], heap[maior])) {
+            if (esq < tamanho && temPrioridade(heap[esq], heap[maior])) {
                 maior = esq;
             }
-            if (dir < tamanho && temPrioridadeSobre(heap[dir], heap[maior])) {
+            if (dir < tamanho && temPrioridade(heap[dir], heap[maior])) {
                 maior = dir;
             }
             if (maior == i) {
@@ -82,7 +82,7 @@ public class FilaPrioridade {
         heap[j] = aux;
     }
  
-    public void imprimirVetor() {
+    public void printarVetor() {
         for (int i = 0; i < tamanho; i++) {
             System.out.print(heap[i] + " ");
         }

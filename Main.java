@@ -63,7 +63,7 @@ public class Main {
             fila.inserir(chamados[i]);   // ordem de chegada
         }
         System.out.print("Vetor do heap: ");
-        fila.imprimirVetor();
+        fila.printarVetor();
 
         Chamado[] ordemFila = new Chamado[chamados.length];
         int k = 0;
